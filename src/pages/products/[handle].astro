@@ -1,0 +1,36 @@
+---
+import Items from "../../components/items.svelte";
+import Container from "../../components/container.svelte";
+import {fetchProductData} from '../../../public/js/testApi.js'
+import Layout from "../../layouts/Layout.astro";
+import Cart from "../../components/cart.svelte";
+import SingleProduct from "../../components/singleProduct.svelte";
+
+const products = await fetchProductData();
+
+// ik heb in de documentatie niet kunnen vinden hoe ik dit dynamisch kan opbouwen.
+export async function getStaticPaths() {
+    return [
+        { params: { handle: 'test-product' } },
+        { params: { handle: 'test-product-2' } },
+        { params: { handle: 'test-dummy-3' } },
+        { params: { handle: 'test-dummy-4' } },
+        { params: { handle: 'test-dummy-5' } },
+        { params: { handle: 'test-dummy-6-extreme-version-dummy' } },
+    ]
+}
+const {handle} = Astro.params;
+---
+
+<Layout title={"Product page"}>
+    <SingleProduct products={products} handle={handle}/>
+</Layout>
+
+<style>
+.block {
+    position: relative;
+    padding:1.5rem;
+
+    background-color: #23262D;
+}
+</style>

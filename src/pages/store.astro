@@ -1,0 +1,20 @@
+---
+import Items from "../components/items.svelte";
+import Container from "../components/container.svelte";
+import {fetchProductData} from '../../public/js/testApi.js'
+import Layout from "../layouts/Layout.astro";
+import Cart from "../components/cart.svelte";
+
+const products = await fetchProductData();
+
+
+---
+
+<Container>
+    <Layout title="DUMMY'S">
+        <h1 class="text-5xl font-bold mb-5">test dummy store</h1>
+        <Items products={products} client:load/>
+        <Cart client:load/>
+        
+    </Layout>
+</Container>
