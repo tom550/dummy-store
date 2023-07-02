@@ -22,7 +22,7 @@
     <form action="">
         <button class="bg-yellow-300 p-3 font-bold mt-3 rounded" on:click="{onSubmitt}">Add to cart</button>
     </form>
-    <a class="mt-3 bg-yellow-300 font-bold rounded p-3" href="/store">Back to store</a>
+    <a class="mt-3 bg-yellow-300 font-bold rounded p-3" href="/index">Back to store</a>
 </div>
 
 
